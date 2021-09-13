@@ -1,0 +1,175 @@
+---
+title: "FMap function"
+author: "Juan Carlos Rubio Polania"
+date: "September 13, 2021"
+output:
+  html_document:
+    df_print: paged
+fontsize: 12pt
+---
+
+## R Function to do maps with the option of using shapefiles
+
+This function provides a way to build maps, considering rivers and lakes. 
+Despite the number of arguments considered, It could contribute to saving 
+time for people with low coding knowledge.
+
+The first line has the x and y axes in terms of longitude and latitude.
+
+The second line has four arguments which are the borders of the sea color 
+layer in an interleaved order, these ones must be outside of longitude and 
+latitude limits.
+
+In the third line, TFont allows you to select the font letter; on the other 
+hand, countries is the argument to select the country that you want to plot; 
+however, if it is absent, the country or countries will be plotted. 
+NOTE: The names and codes of the countries are available through the function 
+iso3166().
+
+The fourth line has the arguments of all colors selected for each geographic 
+element. This link provides a useful list to choose colors 
+http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
+
+* Col1: Color of the square area that representing the ocean or sea; also is 
+the color of the lakes and rivers provided by the packages maps and mapdata.
+
+* Col2: Color selected for the isobaths.
+
+* Col3: Color to fill the countries and coastal areas.
+
+* Col4: Color of the shapefiles.
+
+The fifth line provides you the range used to plot the isobaths; while Lon3 and 
+Lat3 are the arguments to write the text of longitude and latitude in the language
+that you choose. Line1 and line2 provide the option to locate the axis label without
+conflicts due to overwriting with axis texts.
+
+The sixth line has the arguments of wind rose, rose1 and rose2 are the values of 
+longitude and latitude, while rcex allows you to select the size of the wind rose text.  
+
+The seventh line has the arguments of the scale bar. Len is the length of the scale, 
+type could be “bar” or “line”, divs provides the aesthetic black and white rectangles 
+when is selected the bar mode, bcex is the text size, and with the argument “below” you
+can write the units the distance that covers the scale.
+
+The last line has the argument fill for polygons of shapefile when these kinds of files 
+are included.
+
+Note: The sphs is an argument written outside of the list of the function arguments. sphs
+could be a unique shapefile or a list of these files including the map function.
+
+It is necessary to recognize the absence of tributary rivers in mapdata package; 
+therefore is important to get that information from shapefiles available on websites
+such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
+
+### Examples whitout shapefiles and different fonts
+
+* Longitude range 10E - 50E; Latitude range 18N - 61N
+* Longitude range 76W - 32W; Latitude range 51N - 69N
+* Longitude range 143W - 2E; Latitude range 33N - 75N
+* Longitude range 163W - 150W; Latitude range 10N - 21N
+
+
+```{r setup, include=FALSE,echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+load("FMap.Rdata")
+```
+
+
+```{r echo=FALSE}
+sphs=list()
+FMap(10,50,18,61,
+     9,16,51,62,
+      TFont="Sylfaen",
+      countries=c(),
+      col1="dodgerblue",col2="lightsteelblue",col3="lightyellow",
+      step=800,
+      Lon3="Longitudea",Lat3="Latitudea", line1=2,line2=3,
+      rose1=46.5,rose2=58,rcex=0.45,
+      len=500,type='bar',divs=4,below="Kilometroak",bcex=0.6)
+```
+
+
+```{r echo=FALSE}
+sphs=list()
+FMap(-76,-32,51,69,
+     -78,50,-31,71,
+     TFont="Lucida Console",
+     countries=c(),
+     col1="dodgerblue",col2="lightsteelblue",col3="lightyellow",
+     step=500,
+     Lon3="Longitude",Lat3="Latitude", line1=2,line2=3,
+     rose1=-36,rose2=67.9,rcex=0.5,
+     len=300,type='bar',divs=2,below="Kilomètres",bcex=0.6)
+```
+
+
+```{r echo=FALSE}
+sphs=list()
+par(oma=c(1.5,4,1.5,3)+1) 
+FMap(-143,2,33,75,
+     -144,32,3,76,
+     TFont="Leelawadee UI Semilight",
+     countries=c(),
+     col1="dodgerblue",col2="lightsteelblue",col3="lightyellow",
+     step=1200,
+     Lon3="Longitudine",Lat3="Latitudine", line1=2,line2=3,
+     rose1=-6.5,rose2=69,rcex=0.45,
+     len=1000,type='bar',divs=4,below="Chilometri",bcex=0.5)
+```
+
+
+```{r echo=FALSE}
+sphs=list()
+FMap(-163,-150,10,21,
+     -164,9,-149,22,
+     TFont="Times New Roman",
+     countries=c(),
+     col1="dodgerblue",col2="lightsteelblue",col3="lightyellow",
+     step=1500,
+     Lon3="Longitud",Lat3="Latitud", line1=2,line2=3,
+     rose1=-161.7,rose2=20,rcex=0.5,
+     len=500,type='bar',divs=4,below="Kilómetros",bcex=0.5)
+```
+
+### Examples whitout shapefiles and different fonts.
+
+* Longitude range 5W - 35E; Latitude range 33N - 50N
+* Longitude range 10W - 50E; Latitude range 33N - 75N
+
+```{r}
+sph1=readOGR("Abies_alba_plg.shp")# https://www.sciencedirect.com/science/article/pii/S2352340917301981
+sphs=list(sh1=map(sph1))
+
+par(oma=c(2,4,2,3)+1)
+FMap(-5,35,33,50,
+     -6,32,36,52,
+     countries = c(),
+     TFont = "Times New Roman",
+     col1="dodgerblue",col2="lightsteelblue",col3="lightyellow",col4="red",
+     step=1500,
+     Lon3="Longitude",Lat3="Latitude",line1=2,line2=3,
+     rose1=33,rose2=48,rcex=0.5,
+     len=500, type="bar",divs=4,below="Kilometers",bcex=0.8,
+     fill=TRUE)
+```
+
+```{r}
+sph=readOGR("railways.shp")# https://mapcruzin.com/free-europe-arcgis-maps-shapefiles.htm
+sphs=list(sh=map(sph))
+
+par(oma=c(2,4,2,3)+1)
+FMap(-10,50,33,75,
+     -12,32,52,77,
+     countries = c(),
+     TFont = "Times New Roman",
+     col1="dodgerblue",col2="lightsteelblue",col3="lightyellow",col4="firebrick",
+     step=1500,
+     Lon3="Longitude",Lat3="Latitude",line1=2,line2=3,
+     rose1=40,rose2=72,rcex=0.8,
+     len=500, type="bar",divs=4,below="Kilometers",bcex=0.8)
+```
+   
