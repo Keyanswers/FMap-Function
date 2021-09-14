@@ -1,4 +1,4 @@
-setwd("C:/Users/jucar/Documents/GitHub/FMap")
+
 FMap=function(Lon1,Lon2,Lat1,Lat2,
               x1,y1,x2,y2,
               TFont,countries,
