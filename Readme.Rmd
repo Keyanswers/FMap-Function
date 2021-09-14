@@ -95,8 +95,8 @@ FMap(-76,-32,51,69,
      rose1=-36,rose2=67.9,rcex=0.5,
      len=300,type='bar',divs=2,below="Kilomètres",bcex=0.6)
 
-sphs=list()
-par(oma=c(1.5,4,1.5,3)+1) 
+sphs=list() # Empty list
+par(oma=c(1.5,4,1.5,3)+1) # Here, the value after the plus sign set the y-axis label space 
 FMap(-143,2,33,75,
      -144,32,3,76,
      TFont="Leelawadee UI Semilight",
@@ -128,7 +128,7 @@ FMap(-163,-150,10,21,
 sph1=readOGR("Abies_alba_plg.shp")# https://www.sciencedirect.com/science/article/pii/S2352340917301981 
 sphs=list(sh1=map(sph1))
 
-par(oma=c(2,4,2,3)+1)
+par(oma=c(2,4,2,3)+1) # Here, the value after the plus sign set the y-axis label space 
 FMap(-5,35,33,50,
      -6,32,36,52,
      countries = c(),
@@ -143,7 +143,7 @@ FMap(-5,35,33,50,
 sph=readOGR("railways.shp")# https://mapcruzin.com/free-europe-arcgis-maps-shapefiles.htm
 sphs=list(sh=map(sph))
 
-par(oma=c(2,4,2,3)+1)
+par(oma=c(2,4,2,3)+1) # Here, the value after the plus sign set the y-axis label space 
 FMap(-10,50,33,75,
      -12,32,52,77,
      countries = c(),
