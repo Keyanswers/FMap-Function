@@ -62,14 +62,20 @@ It is necessary to recognize the absence of tributary rivers in mapdata package;
 therefore is important to get that information from shapefiles available on websites
 such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
 
-Warning: If you never have been used the extrafont package, the first time that you use the FMap function, 
-         the packages will be installed, after that the Microsoft fonts will be imported to R and this prompt 
-         message will apprear:
+Warnings: If you never have been used the extrafont package, the first time that you use the
+          FMap function, the packages will be installed, after that the Microsoft fonts will 
+          be imported to R and this prompt message will apprear:
          
-          Importing fonts may take a few minutes, depending on the number of fonts and the speed of the system.
-          Continue? [y / n]
+          Importing fonts may take a few minutes, depending on the number of fonts and the speed
+          of the system. Continue? [y / n]
          
           You must type "y" and wait to finish the process (this is required only the first time).
+          
+          click() function is available, with your mouse you will select the place to locate the 
+          scale bar, after that the map will be finished.
+                  
+          par(oma) function contributes to set the borders of the final figure, you only will need 
+          to change the value (number) after the plus sign to select the space to the y-axis label.
           
 
 ### Examples whitout shapefiles and different fonts
@@ -82,7 +88,9 @@ Warning: If you never have been used the extrafont package, the first time that 
 
 load("FMap.Rdata")
 
+x11()
 sphs=list() # Empty list
+par(oma=c(2,4,2,3)+1)
 FMap(10,50,18,61,
      9,16,51,62,
       TFont="Sylfaen",
