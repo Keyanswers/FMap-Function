@@ -56,11 +56,21 @@ The last line has the argument fill for polygons of shapefile when these kinds o
 are included.
 
 Note: The sphs is an argument written outside of the list of the function arguments. sphs
-could be a unique shapefile or a list of these files including the map function.
+       could be a unique shapefile or a list of these files including the map function.
 
 It is necessary to recognize the absence of tributary rivers in mapdata package; 
 therefore is important to get that information from shapefiles available on websites
 such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
+
+Warning: If you never have been used the extrafont package, the first time that you use the FMap function, 
+         the packages will be installed, after that the Microsoft fonts will be imported to R and this prompt 
+         message will apprear:
+         
+          Importing fonts may take a few minutes, depending on the number of fonts and the speed of the system.
+          Continue? [y / n]
+         
+          You must type "y" and wait to finish the process (this is required only the first time).
+          
 
 ### Examples whitout shapefiles and different fonts
 
@@ -155,9 +165,14 @@ FMap(-5,35,33,50,
      len=500, type="bar",divs=4,below="Kilometers",bcex=0.8,
      fill=TRUE)
 
+# If you need to show your stations
+df=data.frame(sta=letters[1:10],lon=runif(10,10,20),lat=runif(10,45,50)) # sampling sites simulated 
+
+points(df$lon,df$lat,cex=3,pch=19,col="forestgreen")
+text(df$lon,df$lat,df$sta,cex=1,pos=1,col="dodgerblue")
+
 dev.copy(device=jpeg,filename="Map5.jpeg",width=800,height=800)
 dev.off()
-
 
 sph=readOGR("railways.shp")# https://mapcruzin.com/free-europe-arcgis-maps-shapefiles.htm
 sphs=list(sh=map(sph))
