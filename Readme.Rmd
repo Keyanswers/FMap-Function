@@ -195,7 +195,7 @@ FMap(-10,50,33,75,
      step=1500,
      Lon3="Longitude",Lat3="Latitude",line1=2,line2=3,
      rose1=40,rose2=72,rcex=0.8,
-     len=500, type="bar",divs=4,below="Kilometers",bcex=0.8)
+     len=500, type="bar",divs=4,below="Kilometers",bcex=0.5)
 
 dev.copy(device=jpeg,filename="Map6.jpeg",width=800,height=800)
 dev.off()
