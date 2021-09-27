@@ -7,15 +7,18 @@ FMap=function(Lon1,Lon2,Lat1,Lat2,
               rose1,rose2,rcex,
               len,type,divs,bcex,below,
               fill){
-  pck=c("mapdata","maps","extrafont","extrafontdb","Rttf2pt1","raster","rgdal","sp","marmap")
+  pck=c("mapdata","maps","extrafont","extrafontdb","raster","rgdal","sp","marmap")
   lpck=data.frame(installed.packages())
   
   if(length(pck[!pck %in% lpck$Package])>0){
     install.packages(c(pck[!pck %in% lpck$Package]))
-    lapply(pck[1:8], require,character.only=TRUE)
+    lapply(pck[1:7], require,character.only=TRUE)
   } else {
-    lapply(pck[1:8], require,character.only=TRUE)
+    lapply(pck[1:7], require,character.only=TRUE)
   }
+  ifelse(dim(lpck[lpck$Package=="Rttf2pt1" & lpck$Version=="1.3.8",])[2]>1
+       ,require(Rttf2pt1),
+       remotes::install_version("Rttf2pt1", version = "1.3.8"))
   #
   ifelse(length(fonts())>0,print("working on your map"),font_import())
   loadfonts(device="win", quiet=TRUE)
