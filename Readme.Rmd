@@ -43,10 +43,10 @@ The arguments Line1 and line2 provide options for distances from the axes withou
 In the wind rose, the arguments rose1, rose2, and rcex have default values. For selecting another location, rose1 is the longitude value and rose2 is the latitude value (for this only are used two values).As a default, rcex is set to 0.6.
 
 The following arguments of the scalebar have default values. In the case that you want to customize this: 
-You can choose either "bar" or "line" as the type (the default is "bar").
-Black and white rectangles are provided by divs (the default value is 4). 
-The text size is bcex (the default value is 0.7).
-The argument for the units is below (default is 'km').
+* You can choose either "bar" or "line" as the type (the default is "bar").
+* Black and white rectangles are provided by divs (the default value is 4). 
+* The text size is bcex (the default value is 0.7).
+* The argument for the units is below (default is 'km').
 
 The fill argument specifies the color of the shapefile polygons.
 
