@@ -10,72 +10,60 @@ fontsize: 12pt
 
 ## R Function to do maps with the option of using shapefiles
 
-This function provides a way to build maps, considering rivers and lakes. 
-Despite the number of arguments considered, It could contribute to saving 
-time for people with low coding knowledge.
+This function provides a way to build maps, considering rivers and lakes. Six arguments are mandatory; however, there are enough options to customize the end product. This function can save you time even if you use all arguments.
 
-The first line has the x and y axes in terms of longitude and latitude.
+Mandatory arguments
+Lon1: The lower value of the x-axis.
+Lon2: The higher value of the x-axis.
+Lat1: The lower value of the y-axis.
+Lat2: The higher value of the y-axis.
 
-The second line has four arguments which are the borders of the sea color 
-layer in an interleaved order, these ones must be outside of longitude and 
-latitude limits.
+countries: You can set this argument to NULL if you don't know which country or countries to plot. The names and codes of the countries are available through the function iso3166().
+Len: This is the length of scale bar.
 
-In the third line, TFont allows you to select the font letter; on the other 
-hand, countries is the argument to select the country that you want to plot; 
-however, if it is absent, the country or countries will be plotted. 
-NOTE: The names and codes of the countries are available through the function 
-iso3166().
+The others arguments have default values. There are four limits to plot a seawater shape: x1, x2, y1, and y2. The values assigned must be lower or higher than their latitude and longitude values.  
 
-The fourth line has the arguments of all colors selected for each geographic 
-element. This link provides a useful list to choose colors 
-http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
+TFont allows you to select a font letter. You can choose available fonts with fonts().
+Considering rivers, lakes, seas, and oceans, different blue scales have been chosen for the color options. Alternatively, you can choose from the available options listed here:http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
 
-* Col1: Color of the square area that representing the ocean or sea; also is 
-the color of the lakes and rivers provided by the packages maps and mapdata.
+* Col1: This is the color of the square area that represents the ocean or sea; it is also used for lakes and rivers provided by the maps and mapdata packages (the color chosen was dodgerblue).
 
-* Col2: Color selected for the isobaths.
+* Col2: This is the color Color selected for the isobaths (the color chosen was lightsteelblue).
 
-* Col3: Color to fill the countries and coastal areas.
+* Col3: This is the color used to fill the continental mass and coastal areas (the color chosen was lightyellow).
 
-* Col4: Color of the shapefiles.
+* Col4: This is the color that you select for the shapefiles.
 
-The fifth line provides you the range used to plot the isobaths; while Lon3 and 
-Lat3 are the arguments to write the text of longitude and latitude in the language
-that you choose. Line1 and line2 provide the option to locate the axis label without
-conflicts due to overwriting with axis texts.
+The step argument allows you to specify the frequency for plotting isobaths, the default value is 150m. 
 
-The sixth line has the arguments of wind rose, rose1 and rose2 are the values of 
-longitude and latitude, while rcex allows you to select the size of the wind rose text.  
+The arguments Lon3 and Lat3 are used to specify how longitude and latitude axes labels should appear in the chosen language. 
 
-The seventh line has the arguments of the scale bar. Len is the length of the scale, 
-type could be “bar” or “line”, divs provides the aesthetic black and white rectangles 
-when is selected the bar mode, bcex is the text size, and with the argument “below” you
-can write the units the distance that covers the scale.
+The arguments Line1 and line2 provide options for distances from the axes without being overwritten.
 
-The last line has the argument fill for polygons of shapefile when these kinds of files 
-are included.
+In the wind rose, the arguments rose1, rose2, and rcex have default values. For selecting another location, rose1 is the longitude value and rose2 is the latitude value (for this only are used two values).As a default, rcex is set to 0.6.
 
-Note: The sphs is an argument written outside of the list of the function arguments. sphs
-       could be a unique shapefile or a list of these files including the map function.
+The following arguments of the scalebar have default values. In the case that you want to customize this: 
+You can choose either "bar" or "line" as the type (the default is "bar").
+Black and white rectangles are provided by divs (the default value is 4). 
+The text size is bcex (the default value is 0.7).
+The argument for the units is below (default is 'km').
 
-It is necessary to recognize the absence of tributary rivers in mapdata package; 
-therefore is important to get that information from shapefiles available on websites
-such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
+The fill argument specifies the color of the shapefile polygons.
 
-Warnings: If you never have been used the extrafont package, the first time that you use the
-          FMap function, the packages will be installed, after that the Microsoft fonts will 
-          be imported to R and this prompt message will apprear:
+Note: The sphs argument is written outside the list of arguments for the function. This can be one shapefile or a list of shapefiles. Write an empty list when they aren't included like => sphs = list(). 
+
+The mapdata package does not provide information on tributary rivers; therefore, this can be obtained from websites such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
+
+Warnings: FMap will install the packages the first time you use it. After the packages are installed, the Microsoft fonts will be imported into R and you will see the following message:
          
-          Importing fonts may take a few minutes, depending on the number of fonts and the speed
-          of the system. Continue? [y / n]
-         
-          You must type "y" and wait to finish the process (this is required only the first time).
+       "Importing fonts may take a few minutes, depending on the number of fonts and the speed
+        of the system. Continue? [y / n]"
+        
+       You must type "y" and wait until the process is complete (this is required only the first time).
           
-          click() function is available, with your mouse you will select the place to locate the 
-          scale bar, after that the map will be finished.
-                  
-          par(oma) function contributes to set the borders of the final figure, you only will need 
-          to change the value (number) after the plus sign to select the space to the y-axis label.
+       The click() function allows you to select where the scale bar should be placed, after that the map will be completed.                           
+       By using par(oma), you can set the border of a final figure; you'll only need to change the number after the plus sign 
+       to set the y-axis label.  
           
 
 ### Examples whitout shapefiles and different fonts
