@@ -1,5 +1,5 @@
 
-## R Function to do maps with the option of using shapefiles
+## A function in R to create maps with the option to use shapefiles.
 
 This function provides a way to build maps, considering rivers and lakes. Six arguments are mandatory; however, there are enough options to customize the end product. This function can save you time even if you use all arguments.
 
