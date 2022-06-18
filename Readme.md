@@ -1,12 +1,3 @@
----
-title: "FMap function"
-author: "Juan Carlos Rubio Polania"
-date: "September 13, 2021"
-output:
-  html_document:
-    df_print: paged
-fontsize: 12pt
----
 
 ## R Function to do maps with the option of using shapefiles
 
