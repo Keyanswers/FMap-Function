@@ -9,7 +9,7 @@ Lon2: The higher value of the x-axis.
 Lat1: The lower value of the y-axis.
 Lat2: The higher value of the y-axis.
 
-countries: You can set this argument to NULL if you don't know which country or countries to plot. The names and codes of the countries are available through the function iso3166().
+countries: You can set this argument to NULL if you don't know which country or countries to plot. The names and codes of the countries are available through the function iso3166.
 
 Len: This is the length of scale bar.
 
