@@ -41,8 +41,8 @@ FMap=function(Lon1,Lon2,Lat1,Lat2,
   bcex = ifelse(missing(bcex),0.7, bcex);
   below = ifelse(missing(below),'km', below)
   
-  rose1 = ifelse(missing(rose1),Lon1+0.8, rose1)
-  rose2 = ifelse(missing(rose2),Lat2-0.8, rose2)
+  rose1 = ifelse(missing(rose1),Lon1 + 0.95, rose1)
+  rose2 = ifelse(missing(rose2),Lat2 - 0.8, rose2)
   rcex = ifelse(missing(rcex),0.6, rcex)
   
     
