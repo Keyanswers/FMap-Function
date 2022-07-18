@@ -1,9 +1,10 @@
 
 ## A function in R to create maps with the option to use shapefiles.
 
-This function provides a way to build maps, considering rivers and lakes. Six arguments are mandatory; however, there are enough options to customize the end product. This function can save you time even if you use all arguments.
+This function provides a way to build maps, considering rivers and lakes. Seven arguments are mandatory; however, there are enough options to customize the final product. This function can save you time even if you use all arguments.
 
 Mandatory arguments
+sphs = list() # the empty list is required.
 Lon1: The lower value of the x-axis.
 Lon2: The higher value of the x-axis.
 Lat1: The lower value of the y-axis.
