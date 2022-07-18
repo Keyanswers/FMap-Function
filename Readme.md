@@ -59,7 +59,7 @@ The click() function allows you to select where the scale bar should be placed, 
 By using par(oma), you can set the border of a final figure; you'll only need to change the number after the plus sign to set the y-axis label.  
           
 
-#### Examples whitout shapefiles and different fonts
+#### Examples without shapefiles and different fonts
 
 * Longitude range 10E - 50E; Latitude range 18N - 61N
 * Longitude range 76W - 32W; Latitude range 51N - 69N
@@ -140,7 +140,7 @@ dev.off()
 ```
 
 
-#### Examples whitout shapefiles and different fonts.
+#### Examples with shapefiles and different fonts.
 
 * Longitude range 5W - 35E; Latitude range 33N - 50N
 * Longitude range 10W - 50E; Latitude range 33N - 75N
