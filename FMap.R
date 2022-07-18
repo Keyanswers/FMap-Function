@@ -19,7 +19,7 @@ FMap=function(Lon1,Lon2,Lat1,Lat2,
   ifelse(dim(lpck[lpck$Package=="Rttf2pt1" & lpck$Version=="1.3.8",])[2]>1
          ,require(Rttf2pt1),
          remotes::install_version("Rttf2pt1", version = "1.3.8"))
-  ifelse(length(fonts())>0,print("working on your map"),font_import())
+  ifelse(length(fonts())>0,print("Working on your map"),font_import())
   loadfonts(device="win", quiet=TRUE)
 
   # Bathymetry
@@ -60,7 +60,7 @@ FMap=function(Lon1,Lon2,Lat1,Lat2,
   map('lakes',add=TRUE,fill=TRUE,col=col1)
   # Shapefiles
   lapply(sphs, map,add=TRUE,fill=ifelse(missing(fill),FALSE, TRUE),
-         col=ifelse(missing(col4),print("still working on your map"),col4))
+         col=ifelse(missing(col4),print("Still working on your map"),col4))
   # Map conventions
   Lon3 = ifelse(missing(Lon3),"Longitude",Lon3)
   Lat3 = ifelse(missing(Lat3),"Latitude",Lat3)
