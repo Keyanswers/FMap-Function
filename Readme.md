@@ -126,7 +126,7 @@ dev.off()
 ```
 
 
-#### Examples with shapefiles and different fonts.
+#### EExamples with shapefiles and various fonts.
 
 * Longitude range 5W - 35E; Latitude range 33N - 50N
 * Longitude range 10W - 50E; Latitude range 33N - 75N
@@ -148,7 +148,7 @@ FMap(-5,35,33,50,
      len=500, type="bar",divs=4,below="Kilometers",bcex=0.8,
      fill=TRUE)
 ```
-##### If you need to show your stations
+##### If you need to display your stations on the map.
 
 ```{r}
 df=data.frame(sta=letters[1:10],lon=runif(10,10,20),lat=runif(10,45,50)) # sampling sites simulated 
