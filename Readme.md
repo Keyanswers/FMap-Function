@@ -5,27 +5,31 @@ This function provides a way to create maps considering rivers and lakes. Seven 
 
 Mandatory arguments:
 
-sphs: A list of shapefiles; the empty list is required.
-Lon1: The lower value of the x-axis.
-Lon2: The higher value of the x-axis.
-Lat1: The lower value of the y-axis.
-Lat2: The higher value of the y-axis.
-countries: You can set this argument to NULL if you don't know which country or countries to plot. The names and codes of the countries are available through the function iso3166.
-Len: The length of the scale bar.
+* sphs: A list of shapefiles; the empty list is required.
+* Lon1: The lower value of the x-axis.
+* Lon2: The higher value of the x-axis.
+* Lat1: The lower value of the y-axis.
+* Lat2: The higher value of the y-axis.
+* countries: You can set this argument to NULL if you don't know which country or countries to plot. The names and codes of the countries are available through the function iso3166.
+* Len: The length of the scale bar.
 Other arguments (with default values):
 
 x1, x2, y1, y2: Limits to plot a seawater shape.
-TFont: Select a font letter. Choose available fonts with fonts().
-Col1: Color of the square area representing the ocean or sea, also used for lakes and rivers provided by the maps and mapdata packages (default is dodgerblue).
-Col2: Color selected for the isobaths (default is lightsteelblue).
-Col3: Color used to fill the continental mass and coastal areas (default is lightyellow).
-Col4: Color selected for the shapefiles.
-step: Frequency for plotting isobaths; default value is 150m.
-Lon3 and Lat3: Specify how longitude and latitude axes labels should appear in the chosen language.
-Line1 and Line2: Options for distances from the axes without being overwritten.
+
+* TFont: Select a font letter. Choose available fonts with fonts().
+* Col1: Color of the square area representing the ocean or sea, also used for lakes and rivers provided by the maps and mapdata packages (default is dodgerblue).
+* Col2: Color selected for the isobaths (default is lightsteelblue).
+* Col3: Color used to fill the continental mass and coastal areas (default is lightyellow).
+* Col4: Color selected for the shapefiles.
+* step: Frequency for plotting isobaths; default value is 150m.
+* Lon3 and Lat3: Specify how longitude and latitude axes labels should appear in the chosen language.
+* Line1 and Line2: Options for distances from the axes without being overwritten.
+
 In the wind rose, the arguments rose1, rose2, and rcex have default values. For selecting another location, rose1 is the longitude value and rose2 is the latitude value (only two values are used). As a default, rcex is set to 0.6.
-Scalebar arguments with default values: type ('bar' or 'line'), divs (number of black and white rectangles; default is 4), bcex (text size; default is 0.7), and below (units; default is 'km').
-fill: Color of the shapefile polygons.
+
+* Scalebar arguments with default values: type ('bar' or 'line'), divs (number of black and white rectangles; default is 4), bcex (text size; default is 0.7), and below (units; default is 'km').
+* fill: Color of the shapefile polygons.
+  
 Note: The sphs argument is written outside the list of arguments for the function. This can be one shapefile or a list of shapefiles. Write an empty list when they aren't included like sphs = list().
 
 The mapdata package does not provide information on tributary rivers; therefore, this can be obtained from websites such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
