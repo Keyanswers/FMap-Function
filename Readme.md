@@ -14,7 +14,7 @@ Mandatory arguments:
 * Len: The length of the scale bar.
 Other arguments (with default values):
 
-x1, x2, y1, y2: Limits to plot a seawater shape.
+* x1, x2, y1, y2: Limits to plot a seawater shape.
 
 * TFont: Select a font letter. Choose available fonts with fonts().
 * Col1: Color of the square area representing the ocean or sea, also used for lakes and rivers provided by the maps and mapdata packages (default is dodgerblue).
