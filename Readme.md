@@ -1,63 +1,44 @@
 
-## A function in R to create maps with the option to use shapefiles.
+## A function in R for creating maps with the option to use shapefiles.
 
-This function provides a way to build maps, considering rivers and lakes. Seven arguments are mandatory; however, there are enough options to customize the final product. This function can save you time even if you use all arguments.
+This function provides a way to create maps considering rivers and lakes. Seven arguments are mandatory; however, there are enough options to customize the final product. This function can save you time even if you use all the arguments.
 
-Mandatory arguments
-sphs = list() # the empty list is required.
+Mandatory arguments:
+
+sphs: A list of shapefiles; the empty list is required.
 Lon1: The lower value of the x-axis.
 Lon2: The higher value of the x-axis.
 Lat1: The lower value of the y-axis.
 Lat2: The higher value of the y-axis.
-
 countries: You can set this argument to NULL if you don't know which country or countries to plot. The names and codes of the countries are available through the function iso3166.
+Len: The length of the scale bar.
+Other arguments (with default values):
 
-Len: This is the length of scale bar.
-
-The others arguments have default values. There are four limits to plot a seawater shape: x1, x2, y1, and y2. The values assigned must be lower or higher than their latitude and longitude values.  
-
-TFont allows you to select a font letter. You can choose available fonts with fonts().
-Considering rivers, lakes, seas, and oceans, different blue scales have been chosen for the color options. Alternatively, you can choose from the available options listed here:http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf.
-
-* Col1: This is the color of the square area that represents the ocean or sea; it is also used for lakes and rivers provided by the maps and mapdata packages (the color chosen was dodgerblue).
-
-* Col2: This is the color Color selected for the isobaths (the color chosen was lightsteelblue).
-
-* Col3: This is the color used to fill the continental mass and coastal areas (the color chosen was lightyellow).
-
-* Col4: This is the color that you select for the shapefiles.
-
-The step argument allows you to specify the frequency for plotting isobaths, the default value is 150m. 
-
-The arguments Lon3 and Lat3 are used to specify how longitude and latitude axes labels should appear in the chosen language. 
-
-The arguments Line1 and line2 provide options for distances from the axes without being overwritten.
-
-In the wind rose, the arguments rose1, rose2, and rcex have default values. For selecting another location, rose1 is the longitude value and rose2 is the latitude value (for this only are used two values).As a default, rcex is set to 0.6.
-
-The following arguments of the scalebar have default values. In the case that you want to customize this: 
-* You can choose either "bar" or "line" as the type (the default is "bar").
-* Black and white rectangles are provided by divs (the default value is 4). 
-* The text size is bcex (the default value is 0.7).
-* The argument for the units is below (default is 'km').
-
-The fill argument specifies the color of the shapefile polygons.
-
-Note: The sphs argument is written outside the list of arguments for the function. This can be one shapefile or a list of shapefiles. Write an empty list when they aren't included like => sphs = list(). 
+x1, x2, y1, y2: Limits to plot a seawater shape.
+TFont: Select a font letter. Choose available fonts with fonts().
+Col1: Color of the square area representing the ocean or sea, also used for lakes and rivers provided by the maps and mapdata packages (default is dodgerblue).
+Col2: Color selected for the isobaths (default is lightsteelblue).
+Col3: Color used to fill the continental mass and coastal areas (default is lightyellow).
+Col4: Color selected for the shapefiles.
+step: Frequency for plotting isobaths; default value is 150m.
+Lon3 and Lat3: Specify how longitude and latitude axes labels should appear in the chosen language.
+Line1 and Line2: Options for distances from the axes without being overwritten.
+In the wind rose, the arguments rose1, rose2, and rcex have default values. For selecting another location, rose1 is the longitude value and rose2 is the latitude value (only two values are used). As a default, rcex is set to 0.6.
+Scalebar arguments with default values: type ('bar' or 'line'), divs (number of black and white rectangles; default is 4), bcex (text size; default is 0.7), and below (units; default is 'km').
+fill: Color of the shapefile polygons.
+Note: The sphs argument is written outside the list of arguments for the function. This can be one shapefile or a list of shapefiles. Write an empty list when they aren't included like sphs = list().
 
 The mapdata package does not provide information on tributary rivers; therefore, this can be obtained from websites such as https://www.weather.gov/gis/Rivers and http://www.conabio.gob.mx/informacion/gis/.
 
-Warnings: FMap will install the packages the first time you use it. After the packages are installed, the Microsoft fonts will be imported into R and you will see the following message:
-
-```{r}         
+Warnings: FMap will install the packages the first time you use it. After the packages are installed, the Microsoft fonts will be imported into R, and you will see the following message:```{r}         
        "Importing fonts may take a few minutes, depending on the number of fonts and the speed
         of the system. Continue? [y / n]"
 ```
-You must type "y" and wait until the process is complete (this is required only the first time).
+You must type 'y' and wait until the process is complete (this is required only the first time).
 
-The click() function allows you to select where the scale bar should be placed, after that the map will be completed.                           
+The click() function allows you to select where the scale bar should be placed; after that, the map will be completed.
 
-By using par(oma), you can set the border of a final figure; you'll only need to change the number after the plus sign to set the y-axis label.  
+By using par(oma), you can set the border of the final figure; you'll only need to change the number after the plus sign to set the y-axis label
           
 
 #### Examples without shapefiles and different fonts
